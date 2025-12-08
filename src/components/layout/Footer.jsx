@@ -1,7 +1,5 @@
 import React from "react";
-import { FaXTwitter } from "react-icons/fa6";
-import { FiLinkedin, FiGithub, FiFacebook, FiInstagram } from "react-icons/fi";
-import { FaCoffee } from "react-icons/fa";
+import { FiGithub, FiFacebook, FiInstagram } from "react-icons/fi";
 
 const socialLinks = [
   {
@@ -15,7 +13,6 @@ const socialLinks = [
   { icon: <FiGithub className="w-5 h-5" />, url: "https://github.com/tuikobt" },
 ];
 
-// Màu viền (giống header)
 const borderColor = "border-[#1E2D3D]";
 
 function Footer() {
@@ -43,7 +40,7 @@ function Footer() {
             href="#"
             className="flex items-center text-gray-400 hover:text-white transition-colors duration-200"
           >
-            <span className="mr-2">minhphuong_lee @</span>
+            <span className="mr-2">@minhphuong_lee 2025</span>
           </a>
         </div>
       </div>

@@ -60,7 +60,7 @@ function Header({ isMobileMenuOpen, onToggleMenu }) {
             }}
             className={`${getDesktopLinkClasses(
               contactLinkDesktop.name
-            )} ${borderColor} border-r`}
+            )} ${borderColor}`}
           >
             {contactLinkDesktop.name}
           </a>
