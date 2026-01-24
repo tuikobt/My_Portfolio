@@ -3,7 +3,7 @@ import React from "react";
 const CodeSnippetBackground = () => {
   return (
     <div className="relative w-full min-h-[600px] overflow-visible flex items-center justify-center px-32">
-      <div className="transform -rotate-12 scale-110 flex flex-col gap-5 opacity-80 select-none pointer-events-none">
+      <div className="transform -rotate-348 scale-110 flex flex-col gap-5 opacity-80 select-none pointer-events-none">
         <CodeCard opacity="opacity-40">
           <span className="text-[#4D5BCE]">function</span>{" "}
           <span className="text-[#E5E9F0]">initializeModelChunk</span>

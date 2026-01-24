@@ -1,139 +1,18 @@
-import React, { useEffect, useRef, useState } from "react";
-
-const GRID = 16;
-const CAN_SIZE = 336;
-const FOOD_TARGET = 10;
+import React from "react";
+import { useSnakeGame } from "../hooks/useSnakeGame";
+import { CAN_SIZE, FOOD_TARGET } from "../utils/snakeHelpers";
 
 export default function SnakeGame({ handleSkip }) {
-  const canvasRef = useRef(null);
-  const [state, setState] = useState("start");
-  const [foodCount, setFoodCount] = useState(0);
-
-  const snakeRef = useRef([]);
-  const dirRef = useRef({ x: 0, y: -GRID });
-  const foodRef = useRef({});
-  const loopRef = useRef(null);
-
-  const randomFood = () => ({
-    x: Math.floor(Math.random() * (CAN_SIZE / GRID)) * GRID,
-    y: Math.floor(Math.random() * (CAN_SIZE / GRID)) * GRID,
-  });
-
-  const startGame = () => {
-    snakeRef.current = [
-      { x: 120, y: 192 },
-      { x: 120, y: 204 },
-      { x: 120, y: 216 },
-    ];
-    dirRef.current = { x: 0, y: -GRID };
-    foodRef.current = randomFood();
-    setFoodCount(0);
-    setState("playing");
-
-    if (loopRef.current) clearInterval(loopRef.current);
-    loopRef.current = setInterval(update, 90);
-  };
-
-  const endGame = (type) => {
-    clearInterval(loopRef.current);
-    setState(type);
-  };
-
-  const update = () => {
-    const ctx = canvasRef.current.getContext("2d");
-    ctx.clearRect(0, 0, CAN_SIZE, CAN_SIZE);
-
-    const head = {
-      x: snakeRef.current[0].x + dirRef.current.x,
-      y: snakeRef.current[0].y + dirRef.current.y,
-    };
-
-    if (
-      head.x < 0 ||
-      head.y < 0 ||
-      head.x >= CAN_SIZE ||
-      head.y >= CAN_SIZE ||
-      snakeRef.current.some((s) => s.x === head.x && s.y === head.y)
-    ) {
-      endGame("lose");
-      return;
-    }
-
-    snakeRef.current.unshift(head);
-
-    if (head.x === foodRef.current.x && head.y === foodRef.current.y) {
-      setFoodCount((prev) => {
-        const newCount = prev + 1;
-        if (newCount === FOOD_TARGET) endGame("win");
-        return newCount;
-      });
-      foodRef.current = randomFood();
-    } else {
-      snakeRef.current.pop();
-    }
-
-    ctx.fillStyle = "#43D9AD";
-    snakeRef.current.forEach((s, index) => {
-      ctx.globalAlpha = 1 - index / (snakeRef.current.length + 8);
-      ctx.fillRect(s.x, s.y, GRID, GRID);
-    });
-    ctx.globalAlpha = 1.0;
-
-    ctx.fillStyle = "#43D9AD";
-    ctx.shadowBlur = 15;
-    ctx.shadowColor = "#43D9AD";
-    ctx.beginPath();
-    ctx.arc(
-      foodRef.current.x + GRID / 2,
-      foodRef.current.y + GRID / 2,
-      GRID / 3,
-      0,
-      2 * Math.PI,
-    );
-    ctx.fill();
-    ctx.shadowBlur = 0;
-  };
-
-  useEffect(() => {
-    const handleKey = (e) => {
-      if (state !== "playing") return;
-      if (
-        ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].indexOf(e.code) > -1
-      ) {
-        e.preventDefault();
-      }
-      if (e.key === "ArrowUp" && dirRef.current.y === 0)
-        dirRef.current = { x: 0, y: -GRID };
-      if (e.key === "ArrowDown" && dirRef.current.y === 0)
-        dirRef.current = { x: 0, y: GRID };
-      if (e.key === "ArrowLeft" && dirRef.current.x === 0)
-        dirRef.current = { x: -GRID, y: 0 };
-      if (e.key === "ArrowRight" && dirRef.current.x === 0)
-        dirRef.current = { x: GRID, y: 0 };
-    };
-    window.addEventListener("keydown", handleKey);
-    return () => window.removeEventListener("keydown", handleKey);
-  }, [state]);
-
-  useEffect(() => {
-    if (state === "start" && canvasRef.current) {
-      const ctx = canvasRef.current.getContext("2d");
-      ctx.clearRect(0, 0, CAN_SIZE, CAN_SIZE);
-    }
-  }, [state]);
+  const { canvasRef, gameState, foodCount, startGame } = useSnakeGame();
 
   return (
     <div className="min-h-screen w-full flex items-center justify-center font-mono p-4 relative overflow-hidden">
-      <div
-        className="relative z-10 flex flex-col md:flex-row gap-6 p-6 md:p-8
-                      bg-[#011627]/80 backdrop-blur-md 
-                      border border-white/10 rounded-xl shadow-2xl
-                      h-[600px] max-h-[80vh]"
-      >
+      <div className="relative z-10 flex flex-col md:flex-row gap-6 p-6 md:p-8 bg-[#011627]/80 backdrop-blur-md border border-white/10 rounded-xl shadow-2xl h-[600px] max-h-[80vh]">
         <Screw className="top-3 left-3 opacity-60" />
         <Screw className="top-3 right-3 opacity-60" />
         <Screw className="bottom-3 left-3 opacity-60" />
         <Screw className="bottom-3 right-3 opacity-60" />
+
         <div className="relative h-full bg-[#010C15]/80 rounded-lg shadow-inner border border-[#1E2D3D] flex items-center justify-center">
           <canvas
             ref={canvasRef}
@@ -142,7 +21,7 @@ export default function SnakeGame({ handleSkip }) {
             className="block rounded-lg"
           />
 
-          {state === "start" && (
+          {gameState === "start" && (
             <div className="absolute inset-0 flex items-end justify-center pb-16">
               <button
                 onClick={startGame}
@@ -153,30 +32,16 @@ export default function SnakeGame({ handleSkip }) {
             </div>
           )}
 
-          {state === "lose" && (
+          {(gameState === "lose" || gameState === "win") && (
             <div className="absolute inset-x-0 bottom-12 bg-[#011627]/95 py-5 flex flex-col items-center border-y border-[#1E2D3D] backdrop-blur-sm">
               <h2 className="text-[#43D9AD] text-2xl mb-3 font-medium">
-                GAME OVER!
+                {gameState === "lose" ? "GAME OVER!" : "WELL DONE!"}
               </h2>
               <button
                 onClick={startGame}
                 className="text-[#607B96] hover:text-white text-sm transition-colors"
               >
-                start-again
-              </button>
-            </div>
-          )}
-
-          {state === "win" && (
-            <div className="absolute inset-x-0 bottom-12 bg-[#011627]/95 py-5 flex flex-col items-center border-y border-[#1E2D3D] backdrop-blur-sm">
-              <h2 className="text-[#43D9AD] text-2xl mb-3 font-medium">
-                WELL DONE!
-              </h2>
-              <button
-                onClick={startGame}
-                className="text-[#607B96] hover:text-white text-sm transition-colors"
-              >
-                play-again
+                {gameState === "lose" ? "start-again" : "play-again"}
               </button>
             </div>
           )}
@@ -184,6 +49,7 @@ export default function SnakeGame({ handleSkip }) {
 
         <div className="flex flex-col h-full justify-between select-none min-w-[180px]">
           <div className="space-y-6">
+            {/* Instructions */}
             <div className="bg-[#01121d]/60 p-4 rounded-lg border border-[#1E2D3D]/50 backdrop-blur-sm">
               <p className="text-white text-xs mb-1">// use keyboard</p>
               <p className="text-white text-xs mb-3">// arrows to play</p>

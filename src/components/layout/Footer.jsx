@@ -12,7 +12,6 @@ const Footer = () => {
   return (
     <footer className="w-full h-12 bg-[#0F172B]/50 backdrop-blur-md border-t border-[#1E2D3D] font-mono text-sm shrink-0 mt-auto z-10">
       <div className="flex items-center justify-between h-full w-full">
-        {/* Left */}
         <div className="flex items-center h-full">
           <div className="px-5 h-full flex items-center border-r border-[#1E2D3D] shrink-0">
             <span>find me in:</span>
@@ -48,7 +47,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Right */}
         <a
           href="https://github.com/tuikobt"
           target="_blank"
