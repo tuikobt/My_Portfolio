@@ -7,11 +7,12 @@ import {
 
 const Footer = () => {
   const iconStyle =
-    "w-12 h-full flex items-center justify-center border-r border-[#1E2D3D] hover:text-white hover:bg-[#011627]/50 transition-colors cursor-pointer text-[#607B96]";
+    "w-12 h-full flex items-center justify-center border-r border-[#1E2D3D] text-[#607B96] hover:text-white hover:bg-[#011627]/50 transition-colors cursor-pointer";
 
   return (
-    <footer className="w-full h-12 bg-[#0F172B]/50 backdrop-blur-md border-t border-[#1E2D3D] text-[#607B96] font-mono text-sm shrink-0 z-10">
+    <footer className="w-full h-12 bg-[#0F172B]/50 backdrop-blur-md border-t border-[#1E2D3D] font-mono text-sm shrink-0 mt-auto z-10">
       <div className="flex items-center justify-between h-full w-full">
+        {/* Left */}
         <div className="flex items-center h-full">
           <div className="px-5 h-full flex items-center border-r border-[#1E2D3D] shrink-0">
             <span>find me in:</span>
@@ -24,7 +25,7 @@ const Footer = () => {
               rel="noreferrer"
               className={iconStyle}
             >
-              <RiFacebookBoxLine size={24} />
+              <RiFacebookBoxLine size={22} />
             </a>
 
             <a
@@ -33,7 +34,7 @@ const Footer = () => {
               rel="noreferrer"
               className={iconStyle}
             >
-              <RiInstagramLine size={24} />
+              <RiInstagramLine size={22} />
             </a>
 
             <a
@@ -42,16 +43,17 @@ const Footer = () => {
               rel="noreferrer"
               className={`${iconStyle} lg:hidden`}
             >
-              <RiGithubFill size={24} />
+              <RiGithubFill size={22} />
             </a>
           </div>
         </div>
 
+        {/* Right */}
         <a
           href="https://github.com/tuikobt"
           target="_blank"
           rel="noreferrer"
-          className="hidden lg:flex items-center h-full px-5 border-l border-[#1E2D3D] hover:text-white hover:bg-[#011627]/50 transition-colors cursor-pointer gap-2"
+          className="hidden lg:flex items-center h-full px-5 gap-2 border-l border-[#1E2D3D] text-[#607B96] hover:text-white hover:bg-[#011627]/50 transition-colors cursor-pointer"
         >
           <span>@tuikobt</span>
           <RiGithubFill size={20} />

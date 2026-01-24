@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 
-const GRID = 12; // Tăng grid một chút cho cân đối
-const CAN_SIZE = 312; // Tăng kích thước màn game (chia hết cho 12)
+const GRID = 16;
+const CAN_SIZE = 336;
 const FOOD_TARGET = 10;
 
-export default function SnakeGame() {
+export default function SnakeGame({ handleSkip }) {
   const canvasRef = useRef(null);
   const [state, setState] = useState("start");
   const [foodCount, setFoodCount] = useState(0);
@@ -184,7 +184,6 @@ export default function SnakeGame() {
 
         <div className="flex flex-col h-full justify-between select-none min-w-[180px]">
           <div className="space-y-6">
-            {/* Hướng dẫn */}
             <div className="bg-[#01121d]/60 p-4 rounded-lg border border-[#1E2D3D]/50 backdrop-blur-sm">
               <p className="text-white text-xs mb-1">// use keyboard</p>
               <p className="text-white text-xs mb-3">// arrows to play</p>
@@ -219,7 +218,10 @@ export default function SnakeGame() {
           </div>
 
           <div className="flex justify-end pt-4">
-            <button className="text-[#607B96] border border-[#607B96] rounded-lg px-5 py-2 text-sm hover:text-white hover:border-white hover:bg-white/5 transition-all w-fit">
+            <button
+              className="text-[#607B96] border border-[#607B96] rounded-lg px-5 py-2 text-sm hover:text-white hover:border-white hover:bg-white/5 transition-all w-fit"
+              onClick={handleSkip}
+            >
               skip
             </button>
           </div>
