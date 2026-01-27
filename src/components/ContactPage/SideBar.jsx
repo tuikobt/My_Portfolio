@@ -3,7 +3,6 @@ import { IoMdClose } from "react-icons/io";
 import { IoMail } from "react-icons/io5";
 import { FaPhone } from "react-icons/fa6";
 import ExplorerFolder from "../common/ExplorerFolder";
-import ExplorerFile from "../common/ExplorerFile";
 
 const Sidebar = ({
   sidebarOpen,
@@ -23,7 +22,7 @@ const Sidebar = ({
 
       <div
         className={`
-        ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}
+        ${sidebarOpen ? "translate-x-0 bg-[linear-gradient(to_top,#020618,#0F172B,#092635)] bg-fixed" : "-translate-x-full"}
         lg:translate-x-0 fixed lg:relative w-64 md:w-72 lg:w-72 h-full
         border-r border-[#1E2D3D] flex flex-col transition-transform duration-300 z-50 lg:z-auto
       `}
