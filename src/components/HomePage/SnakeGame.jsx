@@ -1,6 +1,6 @@
 import React from "react";
-import { useSnakeGame } from "../hooks/useSnakeGame";
-import { CAN_SIZE, FOOD_TARGET } from "../utils/snakeHelpers";
+import { useSnakeGame } from "../../hooks/useSnakeGame";
+import { CAN_SIZE, FOOD_TARGET } from "../../utils/snakeHelpers";
 
 export default function SnakeGame({ handleSkip }) {
   const { canvasRef, gameState, foodCount, startGame } = useSnakeGame();

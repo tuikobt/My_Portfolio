@@ -11,6 +11,8 @@ const Header = () => {
     { name: "_projects", path: "/projects" },
   ];
 
+  const contactLink = { name: "_contact-me", path: "/contact" };
+
   return (
     <header className="w-full bg-[#0F172B]/50 backdrop-blur-md border-b border-[#1E2D3D] text-[#607B96] font-mono text-sm relative">
       <div className="flex items-center justify-between h-14">
@@ -48,9 +50,15 @@ const Header = () => {
 
         <a
           href="/contact"
-          className="hidden lg:flex items-center px-5 h-full border-l border-[#1E2D3D] hover:text-white transition-colors shrink-0"
+          className={`hidden lg:flex items-center px-5 h-full border-l border-[#1E2D3D] hover:text-white transition-colors shrink-0 ${
+            isActive === contactLink.path
+              ? "text-white border-b-2 border-b-[#FEA55F]"
+              : "text-[#607B96]"
+          }`}
+          onMouseEnter={() => setIsActive(contactLink.path)}
+          onMouseLeave={() => setIsActive("/")}
         >
-          _contact-me
+          {contactLink.name}
         </a>
       </div>
 

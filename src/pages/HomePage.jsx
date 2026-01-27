@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
-import Hero from "../components/Hero";
-import SnakeGame from "../components/SnakeGame";
-import CodeSnippetBackground from "../components/CodeSnippetBackground";
+import Hero from "../components/HomePage/Hero";
+import SnakeGame from "../components/HomePage/SnakeGame";
+import CodeSnippetBackground from "../components/HomePage/CodeSnippetBackground";
 
 const HomePage = () => {
   const [skip, setSkip] = useState(false);
