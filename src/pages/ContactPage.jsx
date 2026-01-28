@@ -14,7 +14,8 @@ const ContactPage = () => {
   };
   return (
     <div
-      className="w-full h-screen flex flex-col font-mono text-[#607B96]"
+      /*className="w-full h-screen flex flex-col font-mono text-[#607B96]"*/
+      className="w-full h-full flex flex-col font-mono text-[#607B96] overflow-hidden"
       style={{
         background: "linear-gradient(to top, #020618, #0F172B, #092635)",
       }}

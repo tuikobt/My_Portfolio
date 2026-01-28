@@ -11,7 +11,6 @@ const Footer = () => {
 
   return (
     <footer className="fixed bottom-0 left-0 right-0 w-full h-12 bg-[#0F172B]/95 backdrop-blur-md border-t border-[#1E2D3D] font-mono text-sm z-50">
-      {/* Thêm: fixed bottom-0 left-0 right-0 z-50, đổi bg opacity thành /95 */}
       <div className="flex items-center justify-between h-full w-full">
         <div className="flex items-center h-full">
           <div className="px-5 h-full flex items-center border-r border-[#1E2D3D] shrink-0">
