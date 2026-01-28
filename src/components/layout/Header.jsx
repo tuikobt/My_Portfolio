@@ -12,11 +12,11 @@ const Header = () => {
   ];
 
   return (
-    <header className="w-full bg-[#0F172B]/50 backdrop-blur-md border-b border-[#1E2D3D] text-[#607B96] font-mono text-sm relative">
+    <header className="sticky top-0 w-full bg-[#0F172B]/95 backdrop-blur-md border-b border-[#1E2D3D] text-[#607B96] font-mono text-sm z-[1000]">
+      {/* Thêm: sticky top-0 và tăng opacity bg lên /95 */}
+
       <div className="flex items-center justify-between h-14">
-        {/* LEFT */}
         <div className="flex items-center h-full w-full">
-          {/* LOGO + MOBILE BUTTON */}
           <div className="w-full lg:w-72 px-5 flex items-center h-full border-r border-[#1E2D3D] shrink-0 justify-between lg:justify-start">
             <span className="text-[#607B96] hover:text-white transition-colors cursor-pointer">
               minhphuong-lee
@@ -34,7 +34,6 @@ const Header = () => {
             </button>
           </div>
 
-          {/* DESKTOP NAV */}
           <nav className="hidden lg:flex h-full">
             {navLinks.map((link) => (
               <NavLink
@@ -55,7 +54,6 @@ const Header = () => {
           </nav>
         </div>
 
-        {/* CONTACT (DESKTOP) */}
         <NavLink
           to="/contact"
           className={({ isActive }) =>
@@ -71,9 +69,8 @@ const Header = () => {
         </NavLink>
       </div>
 
-      {/* MOBILE MENU */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden absolute top-14 left-0 w-full bg-[#011627] z-50 border-b border-[#1E2D3D]">
+        <div className="lg:hidden absolute top-14 left-0 w-full bg-[#011627] z-[1100] pointer-events-auto border-t border-[#1E2D3D]">
           <div className="flex flex-col">
             {navLinks.map((link) => (
               <NavLink

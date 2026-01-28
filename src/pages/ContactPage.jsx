@@ -7,7 +7,7 @@ import { PiUserListBold } from "react-icons/pi";
 
 const ContactPage = () => {
   const [openFolders, setOpenFolders] = useState({ contacts: true });
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const toggleFolder = (name) => {
     setOpenFolders((prev) => ({ ...prev, [name]: !prev[name] }));
@@ -17,7 +17,6 @@ const ContactPage = () => {
       className="w-full h-screen flex flex-col font-mono text-[#607B96]"
       style={{
         background: "linear-gradient(to top, #020618, #0F172B, #092635)",
-        backgroundAttachment: "fixed",
       }}
     >
       <Header />
