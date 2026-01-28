@@ -70,7 +70,7 @@ const HomePage = () => {
         }}
       >
         <div className="w-full max-w-7xl flex flex-col lg:flex-row items-start lg:items-center gap-16 lg:gap-40 min-h-[calc(100vh-56px-48px)]">
-          <div className="w-full lg:w-1/2 flex justify-center lg:justify-start">
+          <div className="w-full mt-50 lg:w-1/2 flex justify-center lg:justify-start lg:mt-0">
             <Hero />
           </div>
 
