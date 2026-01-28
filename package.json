@@ -10,8 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@fontsource/fira-code": "^5.2.7",
     "@splinetool/loader": "^1.12.6",
+    "dotenv": "^17.2.3",
+    "emailjs": "^5.0.0",
     "lucide-react": "^0.563.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
