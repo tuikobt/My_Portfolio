@@ -26,4 +26,22 @@ export const projectInformation = [
       "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=300&fit=crop",
     tech: ["Vue"],
   },
+  {
+    id: 4,
+    title: "Project 4",
+    subtitle: "_ai-chatbot",
+    description: "Duis aute irure dolor in velit esse cillum dolore.",
+    image:
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=300&fit=crop",
+    tech: ["Vue"],
+  },
+  {
+    id: 5,
+    title: "Project 5",
+    subtitle: "_ai-chatbot",
+    description: "Duis aute irure dolor in velit esse cillum dolore.",
+    image:
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=300&fit=crop",
+    tech: ["Vue"],
+  },
 ];

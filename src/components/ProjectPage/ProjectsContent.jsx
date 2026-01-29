@@ -23,7 +23,7 @@ const ProjectsContent = ({ setSidebarOpen, selectedFilters }) => {
         </button>
       </div>
 
-      <div className="flex-1 overflow-y-auto p-6 lg:p-10 pb-24 lg:pb-10">
+      <div className="flex-1 overflow-y-auto p-6 pb-24">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {filteredProjects.map((project) => (
             <ProjectCard key={project.id} project={project} />
