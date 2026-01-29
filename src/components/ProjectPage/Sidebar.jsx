@@ -19,23 +19,23 @@ const Sidebar = ({
     <>
       {sidebarOpen && (
         <div
-          className="fixed inset-0 z-40 lg:hidden bg-black/50"
+          className="fixed inset-0 z-40 lg:hidden"
           onClick={() => setSidebarOpen(false)}
         />
       )}
 
       <div
         className={`
-          ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}
-          lg:translate-x-0 fixed lg:relative w-64 h-full
-          border-r border-[#1E2D3D] bg-[#011627]
+          ${sidebarOpen ? "translate-x-0 bg-[linear-gradient(to_top,#020618,#0F172B,#092635)] bg-fixed" : "-translate-x-full"}
+          lg:translate-x-0 fixed lg:relative w-72 h-full
+          border-r border-[#1E2D3D]
           flex flex-col transition-transform duration-300 z-50
         `}
       >
         <div className="p-3 text-xs text-white border-b border-[#1E2D3D] flex items-center justify-between uppercase">
           <span>Explorer</span>
           <button
-            className="lg:hidden p-1 hover:text-[#607B96]"
+            className="lg:hidden hover:text-[#607B96]"
             onClick={() => setSidebarOpen(false)}
           >
             <IoMdClose size={16} />

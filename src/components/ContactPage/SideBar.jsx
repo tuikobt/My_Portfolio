@@ -27,7 +27,7 @@ const Sidebar = ({
         border-r border-[#1E2D3D] flex flex-col transition-transform duration-300 z-50 lg:z-auto
       `}
       >
-        <div className="p-3 text-xs text-[#607B96] border-b border-[#1E2D3D] uppercase tracking-wider flex items-center justify-between">
+        <div className="p-3 text-xs text-white border-b border-[#1E2D3D] flex items-center justify-between uppercase">
           <span>Explorer</span>
           <button
             className="lg:hidden p-1 hover:text-white transition-colors rounded"
