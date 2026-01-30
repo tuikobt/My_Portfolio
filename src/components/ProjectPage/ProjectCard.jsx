@@ -31,9 +31,14 @@ const ProjectCard = ({ project }) => {
           {project.description}
         </p>
 
-        <button className="bg-[#1C2B3A] hover:bg-[#263B4A] text-white px-4 py-2 rounded-lg text-sm transition-colors w-full">
+        <a
+          href={project.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-fit bg-[#1C2B3A] hover:bg-[#263B4A] text-white px-4 py-2 rounded-lg text-sm transition-colors"
+        >
           view-project
-        </button>
+        </a>
       </div>
     </div>
   );
