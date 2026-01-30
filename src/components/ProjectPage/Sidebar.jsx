@@ -60,7 +60,7 @@ const Sidebar = ({
                     type="checkbox"
                     checked={selectedFilters.includes(tech)}
                     onChange={() => toggleFilter(tech)}
-                    className="peer appearance-none w-4 h-4 border-1 border-[#607B96] bg-transparent cursor-pointer checked:border-[#607B96] checked:bg-[#607B96] transition-all hover:border-white"
+                    className="peer appearance-none w-4 h-4 border-1 border-[#607B96] bg-transparent cursor-pointer checked:border-[#607B96] transition-all hover:border-white"
                   />{" "}
                   <svg
                     className="absolute w-3 h-3 text-[#607B96] pointer-events-none hidden peer-checked:block"

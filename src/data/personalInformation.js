@@ -2,18 +2,16 @@ export const personalInformation = {
   bio: `// Personal Information
 const developer = {
   name: "Lê Minh Phương",
-  role: "Backend Developer",
   location: "Việt Nam",
-  experience: "2+ years",
-  skills: ["JavaScript", "Node.js", "React", "MongoDB"],
+  skills: ["JavaScript", "Node.js", "React", "Java", "C/C++", "SQL],
   passion: "Building scalable web applications"
 };
 export default developer;`,
 
   interests: `// My Interests
 const interests = [
-  { category: "Technology", items: ["Web Dev", "Cloud", "AI"] },
-  { category: "Hobbies", items: ["Coding", "Reading", "Open Source"] }
+  { category: "Technology", items: ["Web Dev", "Mobile Dev"] },
+  { category: "Hobbies", items: ["Coding"] }
 ];
 export default interests;`,
 
@@ -24,13 +22,15 @@ export default interests;`,
 
   university: `// University Education
 const education = {
-  degree: "Bachelor of Computer Science",
-  university: "Technology University",
-  gpa: "3.8/4.0"
+  university: "FPT University",
 };
 export default education;`,
 
-  "high-school": "// High School Info...",
+  "high-school": `// High School Education
+const highSchool = {
+  schoolName: "Bien Hoa Specialized High School",
+};
+export default highSchool;`,
 };
 
 export const codeSnippets = [

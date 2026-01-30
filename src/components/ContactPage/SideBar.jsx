@@ -45,13 +45,15 @@ const Sidebar = ({
           >
             <div className="flex items-center gap-2 px-2 py-1.5 text-[#607B96]">
               <IoMail size={14} />
-              <span className="text-xs break-all">
+              <span className="text-xs break-all hover:text-white cursor-pointer transition-colors">
                 leminhphuong15032005@gmail.com
               </span>
             </div>
             <div className="flex items-center gap-2 px-2 py-1.5 text-[#607B96]">
               <FaPhone size={14} />
-              <span className="text-xs">0344662655</span>
+              <span className="text-xs hover:text-white cursor-pointer transition-colors">
+                0344662655
+              </span>
             </div>
           </ExplorerFolder>
         </div>
