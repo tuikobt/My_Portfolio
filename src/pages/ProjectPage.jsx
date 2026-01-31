@@ -5,7 +5,7 @@ import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
 import { projectInformation } from "../data/projectInformation";
 
-const App = () => {
+const ProjectPage = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [openFolders, setOpenFolders] = useState({
     projects: true,
@@ -67,4 +67,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default ProjectPage;
